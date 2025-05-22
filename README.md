@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Componentes de cliente
 
-## Getting Started
+Ejemplo de uso de componentes de cliente.
 
-First, run the development server:
+Por defecto, NextJS trabaja con componentes de servidor usando la técnica SSR (Server Side Rendering).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Sin embargo, en algunos casos necesitaremos usar componentes de cliente, es decir aquellos que se ejecutan en el navegador. Para ello el componente cliente debe colocar `use client` como primera línea del archivo.
+
+Este proyecto implementa un **Carrito de compra** y para ello necesitamos acceder al **[localStorage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage)** donde guardaremos y actualizaremos los productos seleccionados. `localStorage` es una característica disponible únicamente en el lado cliente (navegador).
+
+La estructura de páginas y componentes es la siguiente:
+
+
+```
+src
+├── app
+│   ├── cart
+│   │   └── page.jsx
+│   └── products
+│       └── page.jsx
+└── components
+    ├── Cart.jsx
+    ├── ProductCart.jsx
+    └── ProductList.jsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Los componentes cliente son:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- ProductCart
+- Cart 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+El componente `ProductCart` nos permite añadir un producto a *localStorage*, y `Cart` nos permite sacar de *localStorage*. 
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

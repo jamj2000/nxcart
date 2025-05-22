@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +24,14 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header className="p-4 bg-blue-950 text-white flex justify-between">
+          <Link href='/products' >Productos </Link>
+          <Link href='/cart' >Carrito </Link>
+        </header>
+        <main className="p-4">
+          {children}
+        </main>
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );
