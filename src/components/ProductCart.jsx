@@ -11,7 +11,7 @@ export default function ProductCard({ product }) {
 
         if (exists) {
             // alert(`${product.name} ya está en el carrito`);
-            toast.success(`${product.name} ya está en el carrito`)
+            toast.warning(`${product.name} ya está en el carrito`)
             return;
         }
 
